@@ -1,0 +1,8 @@
+Kullanici adi: kullanici_adi
+Sifre: sifre
+Kac saniyede bir tekrarlasin: 10
+Sayfa ismi: 90.spor
+Yorum: VURDUGUN GOL OLSUN KARTALIM yayındayız
+Anti spam: True
+Rastgele yazilacak karakter: 3
+Rastgele tipi (0 - Harf, 1 - Numara, 2 - Sembol): 0
