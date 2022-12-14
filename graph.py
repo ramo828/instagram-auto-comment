@@ -19,8 +19,67 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.start.clicked.connect(self.click)
         self.save_settings.clicked.connect(self.save)
         self.work.log.connect(self.terminal.setPlainText)
+        self.actionSiyah_3.triggered.connect(self.themeBlack)
+        self.actionMavi.triggered.connect(self.themeBlue)
+        self.actionKirmizi_2.triggered.connect(self.themeRed)
+        self.actionSari.triggered.connect(self.themeYellow)
+
+
+
         # diqqet
     
+    def black(self):
+        self.homePage.setStyleSheet("""
+        background-color: rgb(119, 118, 123);
+        color: rgb(192, 191, 188);
+        """)
+       
+    def themeBlack(self):
+        self.black()
+        self.terminal.setStyleSheet("""
+        color: rgb(222, 221, 218);
+        background-color: rgb(61, 56, 70);
+        """)
+
+    def blue(self):
+        self.homePage.setStyleSheet("""
+        background-color: rgb(53, 132, 228);
+        color: rgb(153, 193, 241);
+        """)
+       
+    def themeBlue(self):
+        self.blue()
+        self.terminal.setStyleSheet("""
+        color: rgb(4, 54, 241);
+        background-color: rgb(80, 96, 191);
+        """)
+    def red(self):
+        self.homePage.setStyleSheet("""
+        background-color: rgb(224, 27, 36);
+        color: rgb(220, 138, 221);
+        """)
+       
+    def themeRed(self):
+        self.red()
+        self.terminal.setStyleSheet("""
+        background-color: rgb(246, 97, 81);
+        color: rgb(80, 96, 191);
+        """)
+
+    def yellow(self):
+        self.homePage.setStyleSheet("""
+        background-color:  rgb(249, 240, 107);
+        color: rgb(255, 120, 0)
+        """)
+       
+    def themeYellow(self):
+        self.yellow()
+        self.terminal.setStyleSheet("""
+        color: rgb(247, 244, 178)
+        background-color: rgb(229, 165, 10)
+        """)
+    
+
     def click(self):
         if self.flag == True:
             self.start.setText("Durdur")

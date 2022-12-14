@@ -144,9 +144,14 @@
      <rect>
       <x>390</x>
       <y>20</y>
-      <width>161</width>
+      <width>191</width>
       <height>121</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="title">
      <string>Rastgele Karakter</string>
@@ -196,9 +201,14 @@
      <rect>
       <x>260</x>
       <y>100</y>
-      <width>151</width>
+      <width>101</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Anti Spam</string>
@@ -213,6 +223,11 @@
       <height>26</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Ayarları kaydet</string>
     </property>
@@ -220,7 +235,7 @@
    <widget class="QPushButton" name="start">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>460</x>
       <y>310</y>
       <width>121</width>
       <height>26</height>
@@ -233,9 +248,9 @@
    <widget class="QTextEdit" name="terminal">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>270</x>
       <y>160</y>
-      <width>291</width>
+      <width>311</width>
       <height>121</height>
      </rect>
     </property>
@@ -272,13 +287,36 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="title">
      <string>Tema</string>
     </property>
-    <addaction name="actionSiyah_2"/>
-    <addaction name="actionBeyaz_2"/>
-    <addaction name="actionYesil"/>
+    <widget class="QMenu" name="menuAyarlar">
+     <property name="title">
+      <string>Ayarlar</string>
+     </property>
+     <widget class="QMenu" name="menuTemalar">
+      <property name="title">
+       <string>Temalar</string>
+      </property>
+      <addaction name="actionSiyah_3"/>
+      <addaction name="actionKirmizi_2"/>
+      <addaction name="actionMavi"/>
+      <addaction name="actionSari"/>
+     </widget>
+     <addaction name="menuTemalar"/>
+    </widget>
+    <addaction name="menuAyarlar"/>
    </widget>
    <addaction name="menuTema"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="actionSiyah">
    <property name="text">
     <string>Siyah</string>
@@ -294,11 +332,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <string>Beyaz</string>
    </property>
   </action>
-  <action name="actionSiyah_2">
-   <property name="text">
-    <string>Siyah</string>
-   </property>
-  </action>
   <action name="actionBeyaz_2">
    <property name="checkable">
     <bool>false</bool>
@@ -310,6 +343,31 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <action name="actionYesil">
    <property name="text">
     <string>Yeşil</string>
+   </property>
+  </action>
+  <action name="actionSiyah_tema">
+   <property name="text">
+    <string>Siyah tema</string>
+   </property>
+  </action>
+  <action name="actionSiyah_3">
+   <property name="text">
+    <string>Siyah</string>
+   </property>
+  </action>
+  <action name="actionKirmizi_2">
+   <property name="text">
+    <string>Kırmızı</string>
+   </property>
+  </action>
+  <action name="actionMavi">
+   <property name="text">
+    <string>Mavi</string>
+   </property>
+  </action>
+  <action name="actionSari">
+   <property name="text">
+    <string>Sari</string>
    </property>
   </action>
  </widget>
