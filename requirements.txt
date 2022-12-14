@@ -1,2 +1,4 @@
 instagrapi
 pillow
+pyside6
+pyqt6

@@ -1,6 +1,22 @@
 from instagrapi import Client
 import random as rd
 
+
+class Data:
+    def __init__(self):
+        pass
+
+    def load_data(self,index = 0):
+        setting_data = open("settings.txt","r")
+        data = setting_data.read()
+        return data.split("\n")[index]
+
+    def save_data(self,*args):
+        setting_data = open("settings.txt","w")
+        for split_data in args:
+            setting_data.write(f" : {split_data}\n")
+
+
 class utility:
     def __init__(self, choise = 0):
         self.choise = choise
