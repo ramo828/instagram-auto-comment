@@ -199,7 +199,7 @@
    <widget class="QCheckBox" name="anti_spam">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>270</x>
       <y>100</y>
       <width>101</width>
       <height>24</height>
@@ -256,7 +256,6 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(222, 221, 218);
-color: rgb(52, 233, 41);
 selection-color: rgb(153, 193, 241);</string>
     </property>
     <property name="readOnly">

@@ -68,7 +68,7 @@ class Ui_instaBot(object):
         self.symbol.setGeometry(QtCore.QRect(10, 90, 109, 24))
         self.symbol.setObjectName("symbol")
         self.anti_spam = QtWidgets.QCheckBox(self.homePage)
-        self.anti_spam.setGeometry(QtCore.QRect(260, 100, 101, 24))
+        self.anti_spam.setGeometry(QtCore.QRect(270, 100, 101, 24))
         font = QtGui.QFont()
         font.setBold(True)
         self.anti_spam.setFont(font)
@@ -85,7 +85,6 @@ class Ui_instaBot(object):
         self.terminal = QtWidgets.QTextEdit(self.homePage)
         self.terminal.setGeometry(QtCore.QRect(270, 160, 311, 121))
         self.terminal.setStyleSheet("background-color: rgb(222, 221, 218);\n"
-"color: rgb(52, 233, 41);\n"
 "selection-color: rgb(153, 193, 241);")
         self.terminal.setReadOnly(True)
         self.terminal.setObjectName("terminal")

@@ -69,14 +69,14 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
     def yellow(self):
         self.homePage.setStyleSheet("""
         background-color:  rgb(249, 240, 107);
-        color: rgb(255, 120, 0)
+        color: rgb(67, 105, 141);
         """)
        
     def themeYellow(self):
         self.yellow()
         self.terminal.setStyleSheet("""
-        color: rgb(247, 244, 178)
-        background-color: rgb(229, 165, 10)
+        color: rgb(0, 0, 128);
+        background-color: rgb(75,104,184);
         """)
     
 

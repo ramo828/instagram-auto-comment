@@ -1,9 +1,9 @@
  : illegalism666
  : Ramizz...1994h
- : 5
- : 90.spor
+ : 3
+ : fifaworldcup
  : VURDUGUN GOL OLSUN KARTALIM yayındayız
- : False
- : 10
+ : True
+ : 5
  : 0
  : False
