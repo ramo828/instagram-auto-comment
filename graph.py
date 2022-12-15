@@ -1,5 +1,7 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtCore import QThread, QObject, pyqtSignal as Signal, pyqtSlot as Slot
+from PyQt6.QtGui import QTextCursor
+
 import threading as td
 import sys
 import Ui_basic
@@ -16,19 +18,26 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.setWindowTitle("Instagram")
         self.setupUi(self)
         self.loadSettingData()
+       
         self.start.clicked.connect(self.click)
         self.save_settings.clicked.connect(self.save)
-        self.work.log.connect(self.terminal.setPlainText)
+        self.work.log.connect(self.writeEnd)
         self.actionSiyah_3.triggered.connect(self.themeBlack)
         self.actionMavi.triggered.connect(self.themeBlue)
         self.actionKirmizi_2.triggered.connect(self.themeRed)
         self.actionSari.triggered.connect(self.themeYellow)
-
-
-
+       
         # diqqet
     
+    def writeEnd(self,message):
+            cursor1 = QTextCursor(self.terminal.textCursor())
+            cursor1.movePosition(cursor1.MoveOperation.Down)
+            self.terminal.setTextCursor(cursor1)
+            self.terminal.insertPlainText(message)
+
+
     def black(self):
+        self.terminal.insertPlainText("hello\n")
         self.homePage.setStyleSheet("""
         background-color: rgb(119, 118, 123);
         color: rgb(192, 191, 188);
@@ -56,7 +65,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
     def red(self):
         self.homePage.setStyleSheet("""
         background-color: rgb(224, 27, 36);
-        color: rgb(220, 138, 221);
+        color: rgb(249, 240, 107);
         """)
        
     def themeRed(self):

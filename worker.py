@@ -1,4 +1,5 @@
 from PyQt6.QtCore import QThread, QObject, pyqtSignal as Signal, pyqtSlot as Slot
+from PyQt6.QtGui import QTextCursor
 import bot_library as bl
 import datetime
 import time
@@ -7,15 +8,20 @@ import time
 class Worker(QObject):
     flag = True
     log = Signal(str)
+    # cursor = Signal()
+
+    
+    
+
     def stopBot(self, flag):
         self.flag = flag
     
-    def runBot(self):
+    def runBot(self):      
         util = bl.utility()
         d = bl.Data()
         util.randomize()
         unique = "testData"
-        terminal = ""
+        # self.cursor.emit()
         count = 1
         self.log.emit("Çalışıyor...")
         kadi = util.commandSpliter(d.load_data(index=0))
@@ -35,11 +41,11 @@ class Worker(QObject):
         while(self.flag):
             an = datetime.datetime.now()
             saat = datetime.datetime.strftime(an, '%X') # Saat
-            terminal += (f"\n{saat} >> Denetleme süresi: {san}")
+            self.log.emit(f"\n{saat} >> Denetleme süresi: {san}")
             time.sleep(san)
             if(self.flag != True):
                 break
-            terminal += (f"\n{saat} >> Deneme sayısı: {count}")
+            self.log.emit(f"\n{saat} >> Deneme sayısı: {count}")
             auto.setAccount(username=kadi, password=ksifre)
             auto.setPage(sayfa)
             auto.setComment(comment=yorum+rand)
@@ -55,12 +61,11 @@ class Worker(QObject):
                 auto.send(auto.tempCode)
                 if(self.flag != True):
                     break
-                terminal += (f"\n{saat} >> Yeni post paylaşıldı və comment yazıldı")
+                self.log.emit(f"\n{saat} >> Yeni post paylaşıldı və comment yazıldı")
                 unique = auto.tempCode
             else:
                 if(self.flag != True):
                     break
-                terminal += (f"\n{saat} >> Yeni paylaşım bulunamadı")
-                print(terminal)
-                self.log.emit(terminal)
+                self.log.emit(f"\n{saat} >> Yeni paylaşım bulunamadı")
+                
                 continue
