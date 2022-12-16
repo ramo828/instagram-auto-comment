@@ -20,14 +20,14 @@ class Worker(QObject):
         unique = "testData"
         count = 1
         self.log.emit("Çalışıyor...")
-        kadi = util.commandSpliter(d.load_data(index=0))
-        ksifre = util.commandSpliter(d.load_data(index=1))
-        san = int(util.commandSpliter(d.load_data(index=2)))
-        sayfa = util.commandSpliter(d.load_data(index=3))
-        rstatus = util.commandSpliter(d.load_data(index=5))
-        rcount = int(util.commandSpliter(d.load_data(index=6)))
-        yorum = util.commandSpliter(d.load_data(index=4))
-        rchoise = int(util.commandSpliter(d.load_data(index=7)))
+        kadi = d.load_data(index=0)
+        ksifre = d.load_data(index=1)
+        san = int(d.load_data(index=2))
+        sayfa =  d.load_data(index=3)
+        rstatus =  d.load_data(index=5)
+        rcount = int( d.load_data(index=6))
+        yorum =  d.load_data(index=4)
+        rchoise = int( d.load_data(index=7))
         util.choise = rchoise
         if(rstatus == "True"):
             yorum += util.buildRand(rcount)

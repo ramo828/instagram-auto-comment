@@ -13,6 +13,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
 
     def __init__(self):
         super().__init__()
+        bl.Data()
         self.work = Worker()
         self.flag = True
         self.show_password_flag = False
@@ -145,8 +146,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
          a_spam,
          random_char,
         str(selected_spam),
-        "False",
-        )
+                )
     
     def loadSettingData(self):
         util = bl.utility()
@@ -154,15 +154,15 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         test = open("settings.txt","r")
         t = test.read()
         util.randomize()
-        kadi = util.commandSpliter(d.load_data(index=0))
-        ksifre = util.commandSpliter(d.load_data(index=1))
-        san = int(util.commandSpliter(d.load_data(index=2)))
-        sayfa = util.commandSpliter(d.load_data(index=3))
-        rstatus = util.commandSpliter(d.load_data(index=5))
-        rcount = int(util.commandSpliter(d.load_data(index=6)))
-        rchoise = int(util.commandSpliter(d.load_data(index=7)))
+        kadi =d.load_data(index=0)
+        ksifre = d.load_data(index=1)
+        san = int(d.load_data(index=2))
+        sayfa =d.load_data(index=3)
+        rstatus = d.load_data(index=5)
+        rcount = int(d.load_data(index=6))
+        rchoise = int(d.load_data(index=7))
         # icstatus = util.commandSpliter(d.load_data(index=8))
-        yorum = util.commandSpliter(d.load_data(index=4))
+        yorum = d.load_data(index=4)
         self.comment.setPlainText(yorum)
         self.page_name.setText(sayfa)
         self.san.setValue(san)
