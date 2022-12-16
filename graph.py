@@ -151,8 +151,6 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
     def loadSettingData(self):
         util = bl.utility()
         d = bl.Data()
-        test = open("settings.txt","r")
-        t = test.read()
         util.randomize()
         kadi =d.load_data(index=0)
         ksifre = d.load_data(index=1)
