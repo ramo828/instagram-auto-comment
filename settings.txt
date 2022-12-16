@@ -2,8 +2,8 @@
  : 
  : 3
  : fifaworldcup
- : Karabakh is Azerbaijan
+ : Karabakh is Azerbaijan 
  : True
- : 5
- : 0
+ : 14
+ : 2
  : False
