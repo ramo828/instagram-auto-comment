@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtWidgets import QApplication, QMainWindow, QLineEdit
 from PyQt6.QtCore import QThread, QObject, pyqtSignal as Signal, pyqtSlot as Slot
 from PyQt6.QtGui import QTextCursor
 
@@ -15,6 +15,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         super().__init__()
         self.work = Worker()
         self.flag = True
+        self.show_password_flag = False
         self.setWindowTitle("Instagram")
         self.setupUi(self)
         self.loadSettingData()
@@ -26,7 +27,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.actionMavi.triggered.connect(self.themeBlue)
         self.actionKirmizi_2.triggered.connect(self.themeRed)
         self.actionSari.triggered.connect(self.themeYellow)
-       
+        self.show_passord.clicked.connect(self.show_password)
         # diqqet
     
     def writeEnd(self,message):
@@ -35,9 +36,19 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
             self.terminal.setTextCursor(cursor1)
             self.terminal.insertPlainText(message)
 
+    def show_password(self):
+        if(self.show_password_flag):
+            self.password.setEchoMode(self.password.echoMode().Password)
+            self.show_passord.setText("Şifreyi göster")
+            self.show_password_flag = False
+        else:
+            self.password.setEchoMode(self.password.echoMode().Normal)
+            self.show_passord.setText("Şifreyi gizle")
+            self.show_password_flag = True
+
+
 
     def black(self):
-        self.terminal.insertPlainText("hello\n")
         self.homePage.setStyleSheet("""
         background-color: rgb(119, 118, 123);
         color: rgb(192, 191, 188);

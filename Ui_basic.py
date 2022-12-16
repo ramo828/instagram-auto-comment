@@ -20,6 +20,7 @@ class Ui_instaBot(object):
         self.login.setObjectName("login")
         self.password = QtWidgets.QLineEdit(self.homePage)
         self.password.setGeometry(QtCore.QRect(20, 60, 161, 26))
+        self.password.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.password.setObjectName("password")
         self.page_name = QtWidgets.QLineEdit(self.homePage)
         self.page_name.setGeometry(QtCore.QRect(20, 100, 201, 26))
@@ -88,6 +89,12 @@ class Ui_instaBot(object):
 "selection-color: rgb(153, 193, 241);")
         self.terminal.setReadOnly(True)
         self.terminal.setObjectName("terminal")
+        self.show_passord = QtWidgets.QCheckBox(self.homePage)
+        self.show_passord.setGeometry(QtCore.QRect(270, 60, 111, 24))
+        font = QtGui.QFont()
+        font.setBold(True)
+        self.show_passord.setFont(font)
+        self.show_passord.setObjectName("show_passord")
         instaBot.setCentralWidget(self.homePage)
         self.menubar = QtWidgets.QMenuBar(instaBot)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 604, 23))
@@ -158,6 +165,7 @@ class Ui_instaBot(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:\'Cantarell\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.show_passord.setText(_translate("instaBot", "Şifreyi göster"))
         self.menuTema.setTitle(_translate("instaBot", "Tema"))
         self.menuAyarlar.setTitle(_translate("instaBot", "Ayarlar"))
         self.menuTemalar.setTitle(_translate("instaBot", "Temalar"))

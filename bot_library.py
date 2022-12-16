@@ -4,7 +4,7 @@ import random as rd
 
 class Data:
     def __init__(self):
-        pass
+        self.codec = "utf-8"
 
     def load_data(self,index = 0):
         setting_data = open("settings.txt","r")
