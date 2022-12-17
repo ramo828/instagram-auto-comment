@@ -62,7 +62,7 @@ class Worker(QObject):
                 auto.send(auto.tempCode)
                 if(self.flag != True):
                     break
-                self.red_log.emit(f"\n{saat} >> Yeni post paylaşıldı və comment yazıldı")
+                self.log.emit(f"\n{saat} >> Yeni post paylaşıldı və comment yazıldı")
                 unique = auto.tempCode
                 success_counter+=1
             else:
