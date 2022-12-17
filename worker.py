@@ -8,6 +8,10 @@ import time
 class Worker(QObject):
     flag = True
     log = Signal(str)
+    success_counter_signal = Signal(int)
+    try_counter_signal = Signal(int)
+
+
 
         
     def stopBot(self, flag):
@@ -16,9 +20,9 @@ class Worker(QObject):
     def runBot(self):      
         util = bl.utility()
         d = bl.Data()
-        # util.randomize()
         unique = "testData"
         count = 1
+        success_counter = 0
         self.log.emit("Çalışıyor...")
         kadi = d.load_data(index=0)
         ksifre = d.load_data(index=1)
@@ -34,6 +38,7 @@ class Worker(QObject):
         auto = bl.autoComment()
         if(self.flag!=True):
             self.log.emit("Durduruldu...")
+        self.try_counter_signal.emit(count)
         while(self.flag):
             an = datetime.datetime.now()
             saat = datetime.datetime.strftime(an, '%X') # Saat
@@ -54,15 +59,16 @@ class Worker(QObject):
                 unique = auto.tempCode
             count=count+1
             if(unique != auto.tempCode):
-                # print(auto.tempCode)
                 auto.send(auto.tempCode)
                 if(self.flag != True):
                     break
-                self.log.emit(f"\n{saat} >> Yeni post paylaşıldı və comment yazıldı")
+                self.red_log.emit(f"\n{saat} >> Yeni post paylaşıldı və comment yazıldı")
                 unique = auto.tempCode
+                success_counter+=1
             else:
                 if(self.flag != True):
                     break
                 self.log.emit(f"\n{saat} >> Yeni paylaşım bulunamadı")
-                
+                self.success_counter_signal.emit(success_counter)
+                self.try_counter_signal.emit(count)
                 continue

@@ -20,15 +20,16 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.setWindowTitle("Instagram")
         self.setupUi(self)
         self.loadSettingData()
-       
         self.start.clicked.connect(self.click)
         self.save_settings.clicked.connect(self.save)
         self.work.log.connect(self.writeEnd)
-        self.actionSiyah_3.triggered.connect(self.themeBlack)
+        self.actionSiyah.triggered.connect(self.themeBlack)
         self.actionMavi.triggered.connect(self.themeBlue)
-        self.actionKirmizi_2.triggered.connect(self.themeRed)
+        self.actionKirmizi.triggered.connect(self.themeRed)
         self.actionSari.triggered.connect(self.themeYellow)
         self.show_passord.clicked.connect(self.show_password)
+        self.work.success_counter_signal.connect(self.success_counter.display)
+        self.work.try_counter_signal.connect(self.try_counter.display)
         # diqqet
     
     def writeEnd(self,message):
@@ -36,6 +37,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
             cursor1.movePosition(cursor1.MoveOperation.Down)
             self.terminal.setTextCursor(cursor1)
             self.terminal.insertPlainText(message)
+
 
     def show_password(self):
         if(self.show_password_flag):
