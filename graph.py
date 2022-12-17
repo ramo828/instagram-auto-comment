@@ -84,6 +84,18 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
        
     def themeRed(self):
         self.red()
+        self.try_counter.setStyleSheet(
+            """
+                    color: rgb(249, 240, 107);
+            
+            """
+        )
+        self.success_counter.setStyleSheet(
+            """
+                    color: rgb(249, 240, 107);
+            
+            """
+        )
         self.terminal.setStyleSheet("""
         background-color: rgb(246, 97, 81);
         color: rgb(80, 96, 191);

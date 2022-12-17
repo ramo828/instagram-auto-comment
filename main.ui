@@ -17,7 +17,7 @@
    <widget class="QGroupBox" name="set_char">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>460</x>
       <y>10</y>
       <width>121</width>
       <height>181</height>
@@ -41,6 +41,12 @@
        <height>24</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Harfler</string>
      </property>
@@ -54,6 +60,12 @@
        <height>24</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Numaralar</string>
      </property>
@@ -66,6 +78,12 @@
        <width>109</width>
        <height>24</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Semboller</string>
@@ -153,13 +171,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>111</width>
+       <width>131</width>
        <height>24</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -178,7 +196,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -230,14 +248,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Cantarell</family>
-       <pointsize>15</pointsize>
+       <pointsize>12</pointsize>
        <italic>false</italic>
        <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(70, 149, 3);
-font: 800 15pt &quot;Cantarell&quot;;
+      <string notr="true">color: rgb(224, 27, 36)
 </string>
      </property>
      <property name="frameShape">
@@ -275,7 +292,7 @@ font: 800 15pt &quot;Cantarell&quot;;
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(70, 149, 3);</string>
+      <string notr="true">color: rgb(224, 27, 36)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -319,7 +336,7 @@ font: 800 15pt &quot;Cantarell&quot;;
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -338,7 +355,7 @@ font: 800 15pt &quot;Cantarell&quot;;
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -358,6 +375,7 @@ font: 800 15pt &quot;Cantarell&quot;;
     </property>
     <property name="font">
      <font>
+      <pointsize>10</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -372,6 +390,12 @@ font: 800 15pt &quot;Cantarell&quot;;
        <width>161</width>
        <height>26</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -389,6 +413,12 @@ font: 800 15pt &quot;Cantarell&quot;;
        <height>26</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="placeholderText">
       <string>Kullanıcı adı</string>
      </property>
@@ -405,6 +435,7 @@ font: 800 15pt &quot;Cantarell&quot;;
     </property>
     <property name="font">
      <font>
+      <pointsize>10</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -422,6 +453,12 @@ font: 800 15pt &quot;Cantarell&quot;;
        <width>201</width>
        <height>71</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="accessibleDescription">
       <string/>
@@ -451,6 +488,12 @@ font: 800 15pt &quot;Cantarell&quot;;
        <height>27</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
     </widget>
     <widget class="QSpinBox" name="san">
      <property name="geometry">
@@ -460,6 +503,12 @@ font: 800 15pt &quot;Cantarell&quot;;
        <width>45</width>
        <height>27</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="k_label">
@@ -508,6 +557,12 @@ font: 800 15pt &quot;Cantarell&quot;;
        <width>201</width>
        <height>26</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="placeholderText">
       <string>Yorum yapılacak sayfa</string>
