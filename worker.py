@@ -8,8 +8,8 @@ import time
 class Worker(QObject):
     flag = True
     log = Signal(str)
-    success_counter_signal = Signal(int)
-    try_counter_signal = Signal(int)
+    success_counter_signal = Signal(str)
+    try_counter_signal = Signal(str)
 
 
 
@@ -38,7 +38,7 @@ class Worker(QObject):
         auto = bl.autoComment()
         if(self.flag!=True):
             self.log.emit("Durduruldu...")
-        self.try_counter_signal.emit(count)
+        self.try_counter_signal.emit(str(count))
         while(self.flag):
             an = datetime.datetime.now()
             saat = datetime.datetime.strftime(an, '%X') # Saat
@@ -69,6 +69,6 @@ class Worker(QObject):
                 if(self.flag != True):
                     break
                 self.log.emit(f"\n{saat} >> Yeni paylaşım bulunamadı")
-                self.success_counter_signal.emit(success_counter)
-                self.try_counter_signal.emit(count)
+                self.success_counter_signal.emit(str(success_counter))
+                self.try_counter_signal.emit(str(count))
                 continue

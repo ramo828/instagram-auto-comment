@@ -28,8 +28,8 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.actionKirmizi.triggered.connect(self.themeRed)
         self.actionSari.triggered.connect(self.themeYellow)
         self.show_passord.clicked.connect(self.show_password)
-        self.work.success_counter_signal.connect(self.success_counter.display)
-        self.work.try_counter_signal.connect(self.try_counter.display)
+        self.work.success_counter_signal.connect(self.success_counter.setText)
+        self.work.try_counter_signal.connect(self.try_counter.setText)
         # diqqet
     
     def writeEnd(self,message):
