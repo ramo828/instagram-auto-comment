@@ -16,6 +16,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         bl.Data()
         self.work = Worker()
         self.flag = True
+        self.pinflag = False
         self.show_password_flag = False
         self.setWindowTitle("Instagram")
         self.setupUi(self)
@@ -28,16 +29,44 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.actionKirmizi.triggered.connect(self.themeRed)
         self.actionSari.triggered.connect(self.themeYellow)
         self.show_passord.clicked.connect(self.show_password)
+        self.pin_bypass.clicked.connect(self.enablePinSkip)
         self.work.success_counter_signal.connect(self.success_counter.setText)
         self.work.try_counter_signal.connect(self.try_counter.setText)
+        self.comment_skip_number.setReadOnly(True)
+        self.comment_skip_number.setPlaceholderText("0")
+
         # diqqet
     
+    def enablePinSkip(self,ch):
+        if(ch):
+            if(len(self.comment_skip_number.text()) == 0):
+                self.comment_skip_number.setText("0")
+            self.pinFlag = True
+            self.comment_skip_number.setStyleSheet("""
+            color: rgb(0,0,0);
+            background-color: rgb(255, 255, 255);
+            """)
+            self.comment_skip_number.setReadOnly(False)
+            self.pin_bypass.setText("Pasiv")
+        else:
+            self.pinFlag = False
+            self.pin_bypass.setText("0")
+            self.comment_skip_number.clear()
+            self.comment_skip_number.setStyleSheet("""
+            color: rgb(222, 221, 218);
+            background-color: rgb(222, 221, 218);
+            """)
+            self.pin_bypass.setText("Aktiv")
+            self.comment_skip_number.setReadOnly(True)
+
+
+
+
     def writeEnd(self,message):
             cursor1 = QTextCursor(self.terminal.textCursor())
             cursor1.movePosition(cursor1.MoveOperation.Down)
             self.terminal.setTextCursor(cursor1)
             self.terminal.insertPlainText(message)
-
 
     def show_password(self):
         if(self.show_password_flag):
@@ -145,6 +174,12 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         comment = self.comment.toPlainText()
         a_spam = str(self.anti_spam.isChecked())
         random_char = str(self.char_number.text())
+        comment_number = self.comment_skip_number.text()
+        if(len(comment_number) > 0 and comment_number.isdigit() and self.pin_bypass.isChecked()):
+            comment_number = int(comment_number)
+        else:
+            comment_number = 0
+            self.comment_skip_number.setText("0")
         if(self.alpha.isChecked()):
             selected_spam = 0
         elif(self.number.isChecked()):
@@ -160,6 +195,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
          a_spam,
          random_char,
         str(selected_spam),
+        comment_number
                 )
     
     def loadSettingData(self):
@@ -173,7 +209,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         rstatus = d.load_data(index=5)
         rcount = int(d.load_data(index=6))
         rchoise = int(d.load_data(index=7))
-        # icstatus = util.commandSpliter(d.load_data(index=8))
+        comment_number = int(d.load_data(index=8))
         yorum = d.load_data(index=4)
         self.comment.setPlainText(yorum)
         self.page_name.setText(sayfa)
@@ -181,6 +217,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         self.char_number.setValue(rcount)
         self.password.setText(ksifre)
         self.login.setText(kadi)
+        self.comment_skip_number.setText(str(comment_number))
         if(rchoise == 0):
             self.alpha.setChecked(True)
         elif(rchoise == 1):

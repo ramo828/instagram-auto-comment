@@ -32,6 +32,8 @@ class Worker(QObject):
         rcount = int( d.load_data(index=6))
         yorum =  d.load_data(index=4)
         rchoise = int( d.load_data(index=7))
+        comment_number = int( d.load_data(index=8))
+
         util.choise = rchoise
         if(rstatus == "True"):
             yorum += util.buildRand(rcount)
@@ -54,7 +56,7 @@ class Worker(QObject):
             auto.connect()
             if(self.flag != True):
                 break
-            auto.getMedia()
+            auto.getMedia(comment_number)
             if(count < 2):
                 unique = auto.tempCode
             count=count+1

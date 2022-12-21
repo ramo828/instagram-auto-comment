@@ -18,13 +18,14 @@ class Data:
         comment TEXT,
         antiban TEXT,
         random_length INT,
-        random_choise INT)
+        random_choise INT,
+        comment_number INT)
         """)
         if(file_exists):
-            self.default_data("","",5,"","","True",0,0)
+            self.default_data("","",5,"","","True",0,0,0)
 
     def default_data(self, *args):
-        addValue = "INSERT INTO settings VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')".format(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7])
+        addValue = "INSERT INTO settings VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')".format(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8])
         self.cursor.execute(addValue)
         self.sql.commit()
 
@@ -36,7 +37,7 @@ class Data:
 
     def save_data(self,*args):
         
-        addValue = "UPDATE settings SET login = '{0}',password = '{1}', try_time = '{2}', page = '{3}', comment = '{4}',antiban = '{5}',random_length = '{6}',random_choise = '{7}'".format(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7])
+        addValue = "UPDATE settings SET login = '{0}',password = '{1}', try_time = '{2}', page = '{3}', comment = '{4}',antiban = '{5}',random_length = '{6}',random_choise = '{7}',comment_number = '{8}'".format(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8])
         self.cursor.execute(addValue)
         self.sql.commit()
 
@@ -96,10 +97,10 @@ class autoComment:
         # instagram page
        
 
-    def getMedia(self):
-        self.medias = self.cl.user_medias(self.user_id, 5)
+    def getMedia(self, commentNo):
+        self.medias = self.cl.user_medias(self.user_id, 2+commentNo)
         # page media (max=5)
-        latest_post = self.medias[0].code
+        latest_post = self.medias[commentNo].code
         # latest post code
         self.tempCode = latest_post
         # tamper code
@@ -113,7 +114,10 @@ class autoComment:
         self.comment = comment
 
     def send(self, code):
-        media_id = self.cl.media_id(self.cl.media_pk_from_url(self.url+code))
+        media_pk = self.cl.media_pk_from_url(self.url+code)
+        media_id = self.cl.media_id(media_pk=media_pk)
+        print(self.cl.media_info(media_pk=media_pk))
+        print(media_id)
         # latest post id
         comment = self.cl.media_comment(media_id, self.comment)
         # comment   
