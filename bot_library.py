@@ -2,6 +2,7 @@ from instagrapi import Client
 import random as rd
 import sqlite3 as sql
 from os.path import exists
+from random import randint
 
 class Data:
     def __init__(self):
@@ -95,10 +96,12 @@ class autoComment:
         self.cl.login(self.username, self.password)
         self.user_id = self.cl.user_id_from_username(self.page)
         # instagram page
-       
+    def setChoise(self, ch, len):
+        self.ch = ch
+        self.len  = len
 
     def getMedia(self, commentNo):
-        self.medias = self.cl.user_medias(self.user_id, 2+commentNo)
+        self.medias = self.cl.user_medias(int(self.user_id), 2+commentNo)
         # page media (max=5)
         latest_post = self.medias[commentNo].code
         # latest post code

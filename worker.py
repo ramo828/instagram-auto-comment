@@ -2,6 +2,7 @@ from PyQt6.QtCore import QThread, QObject, pyqtSignal as Signal, pyqtSlot as Slo
 from PyQt6.QtGui import QTextCursor
 import bot_library as bl
 import datetime
+from random import randint
 import time
 
 
@@ -35,13 +36,19 @@ class Worker(QObject):
         comment_number = int( d.load_data(index=8))
 
         util.choise = rchoise
-        if(rstatus == "True"):
-            yorum += util.buildRand(rcount)
         auto = bl.autoComment()
+        auto.setChoise(rchoise, rcount)
         if(self.flag!=True):
             self.log.emit("Durduruldu...")
         self.try_counter_signal.emit(str(count))
+        length = len(yorum.splitlines()) -1
+        yorum_temp = yorum.splitlines()
         while(self.flag):
+            rnd = randint(0,length)
+            print("Length: ",length, rnd)
+            yorum = yorum_temp[rnd]
+            if(rstatus == "True"):
+                yorum += " "+util.buildRand(rcount)
             an = datetime.datetime.now()
             saat = datetime.datetime.strftime(an, '%X') # Saat
             self.log.emit(f"\n{saat} >> Denetleme süresi: {san}")

@@ -151,8 +151,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
         else:
             self.start.setText("Başla")
             self.flag = True
-
-        self.thread = td.Thread(target=self.work.runBot, daemon=True)
+        self.thread1 = td.Thread(target=self.work.runBot, daemon=True)
         if(self.flag):
             print("Durdu")
             # self.thread.start()
@@ -161,7 +160,7 @@ class Pencere(QMainWindow, Ui_basic.Ui_instaBot):
             print("Calisdi")
             self.terminal.clear()
             self.work.stopBot(True)
-            self.thread.start()
+            self.thread1.start()
 
 
     def save(self):

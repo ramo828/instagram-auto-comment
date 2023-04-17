@@ -1,6 +1,7 @@
-@echo off 
-
-echo ***Create Mammadli Ramiz***
-@REM Program calismazsa commentleri @REM kisimlarini sil
-python graph.py
-@REM PAUSE
+@echo off
+rmdir /s /q stp build dist
+python -m venv stp
+call stp\Scripts\activate.bat
+pip install -r requirements.txt
+pip install pip --upgrade
+pyinstaller --onefile graph.py --icon resource/icon.ico --noconsole
